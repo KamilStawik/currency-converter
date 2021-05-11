@@ -1,0 +1,36 @@
+/* article.css file */
+
+.articel {
+    margin: 30px 5px;
+}
+
+.articel__unorderedList {
+    list-style: none;
+    padding: 2px;
+}
+
+.articel__listItem {
+    padding: 8px 2px;
+}
+
+.articel__requiredColor {
+    display: inline-block;
+    width: 100px;
+    background-color: rgb(255, 250, 200);
+    border: 1px solid #888;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    margin-bottom: -5px;
+}
+
+.articel__invalidColor {
+    display: inline-block;
+    width: 100px;
+    background-color: rgb(255, 160, 160);
+    border: 1px solid #888;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    margin-bottom: -5px;
+}

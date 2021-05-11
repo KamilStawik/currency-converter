@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator walut</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+        crossorigin="anonymous" />
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/header.css" rel="stylesheet">
+    <link href="css/form.css" rel="stylesheet">
+    <link href="css/articel.css" rel="stylesheet">
+    <link href="css/footer.css" rel="stylesheet">
+
+    <script defer src="js/script.js"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body class="wholeBody">
+    <header>
+        <h1 class="header">Kalkulator walut</h1>
+    </header>
+
+    <main class="mainContainer">
+        <article class="articel">
+            <ul class="articel__unorderedList">
+                <li class="articel__listItem">Kalkulator przelicza wartość waluty po kursie średnim z dnia 30.04.2021
+                </li>
+                <li class="articel__listItem">Pola wymagane są oznaczone kolorem żółtym <span
+                        class="articel__requiredColor"></span></li>
+                <li class="articel__listItem">Pola błędnie wypełnione są oznaczone kolorem czerwonym: <span
+                        class="articel__invalidColor"></span></li>
+            </ul>
+        </article>
+
+        <form class="js-form">
+            <fieldset class="form__fieldset">
+                <legend class="form__legend">Przelicznik walut</legend>
+                <p>
+                    <label>
+                        <span class="form__labelText">Waluta do przeliczenia:</span>
+                        <input class="js-amount form__numberField" type="number" name="amount" value="1" step="0.01"
+                            min="1" max="100000000" required>
+                    </label>
+
+                    <label>
+
+                        <select class="js-currency form__selectField" name="currency" required>
+                            <option value="PLN" selected>PLN</option>
+                            <option value="EUR">EUR</option>
+                            <option value="USD">USD</option>
+                        </select>
+                    </label>
+                </p>
+                <div class="form__divider"></div>
+                <p>
+                    <label>
+                        <span class="form__labelText">Wynik:</span>
+                        <input class="js-result form__numberField" type="number" name="result" placeholder="wynik"
+                            disabled>
+                    </label>
+
+                    <label>
+
+                        <select class="js-resultCurrency form__selectField" name="resultCurrency" required>
+                            <option value="PLN">PLN</option>
+                            <option value="EUR" selected>EUR</option>
+                            <option value="USD">USD</option>
+                        </select>
+                    </label>
+                </p>
+
+            </fieldset>
+
+            <button class="form__button">Przelicz!</button>
+
+
+        </form>
+
+    </main>
+
+    <footer class="footer">
+        <p>Kamil Stawik 2021 YouCode Student</p>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+/* style.css file */
+
+html {
+    box-sizing: border-box;
+}
+
+*, ::after, ::before {
+    box-sizing: inherit;
+}
+
+.wholeBody {
+    font-family: "Lato", sans-serif;
+}
+
+.mainContainer {
+    max-width: 800px;
+    margin: 0px auto;
+    padding: 0px 10px;
+}
