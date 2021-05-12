@@ -1,4 +1,6 @@
-/* form.css file */
+.form {
+    margin: 2px;
+}
 
 .form__labelText {
     max-width: 165px;
@@ -49,6 +51,7 @@
 
 .form__fieldset {
     border: 1px solid hsl(240, 100%, 25%);
+    background-color: rgb(255, 250, 240);
     border-radius: 5px;
     padding: 10px;
     margin: 20px 0px;

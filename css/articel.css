@@ -1,7 +1,8 @@
-/* article.css file */
-
 .articel {
-    margin: 30px 5px;
+    margin: 30px 2px;
+    background-color: rgb(255, 250, 240);
+    border: 1px solid #888;
+    border-radius: 5px;
 }
 
 .articel__unorderedList {
