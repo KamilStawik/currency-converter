@@ -1,52 +1,69 @@
-let formElement = document.querySelector(".js-form");
-let amountElement = document.querySelector(".js-amount");
-let resultElement = document.querySelector(".js-result");
-let currencyElement = document.querySelector(".js-currency");
-let resultCurrencyElement = document.querySelector(".js-resultCurrency");
-
-let longResult = 0;
-
-let currencyWorthEURPLN = 4.57;
-let currencyWorthPLNEUR = 1 / currencyWorthEURPLN;
-
-let currencyWorthUSDPLN = 3.77;
-let currencyWorthPLNUSD = 1 / currencyWorthUSDPLN;
-
-let currencyWorthEURUSD = 1.21;
-let currencyWorthUSDEUR = 1 / currencyWorthEURUSD;
+{
+    const currencyElement = document.querySelector(".js-currency");
+    const resultCurrencyElement = document.querySelector(".js-resultCurrency");
 
 
+    const checkCurrencyPairRate = () => {
 
-console.log(resultElement.value);
+        const currencyWorthEURPLN = 4.57;
+        const currencyWorthPLNEUR = 1 / currencyWorthEURPLN;
 
-formElement.addEventListener("submit", (event) => {
-    event.preventDefault();
-    currencyElement.classList.remove("form__selectField--error");
-    resultCurrencyElement.classList.remove("form__selectField--error");
+        const currencyWorthUSDPLN = 3.77;
+        const currencyWorthPLNUSD = 1 / currencyWorthUSDPLN;
 
-    if (currencyElement.value === "PLN" && resultCurrencyElement.value === "EUR") {
-        longResult = amountElement.value * currencyWorthPLNEUR;
-        resultElement.value = longResult.toFixed(2);
-    } else if (currencyElement.value === "EUR" && resultCurrencyElement.value === "PLN") {
-        longResult = amountElement.value * currencyWorthEURPLN;
-        resultElement.value = longResult.toFixed(2);
-    } else if (currencyElement.value === "PLN" && resultCurrencyElement.value === "USD") {
-        longResult = amountElement.value * currencyWorthPLNUSD;
-        resultElement.value = longResult.toFixed(2);
-    } else if (currencyElement.value === "EUR" && resultCurrencyElement.value === "USD") {
-        longResult = amountElement.value * currencyWorthEURUSD;
-        resultElement.value = longResult.toFixed(2);
-    } else if (currencyElement.value === "USD" && resultCurrencyElement.value === "PLN") {
-        longResult = amountElement.value * currencyWorthUSDPLN;
-        resultElement.value = longResult.toFixed(2);
-    } else if (currencyElement.value === "USD" && resultCurrencyElement.value === "EUR") {
-        longResult = amountElement.value * currencyWorthUSDEUR;
-        resultElement.value = longResult.toFixed(2);
-    } else if (currencyElement.value === resultCurrencyElement.value) {
-        currencyElement.classList.add("form__selectField--error");
-        resultCurrencyElement.classList.add("form__selectField--error");
+        const currencyWorthEURUSD = 1.21;
+        const currencyWorthUSDEUR = 1 / currencyWorthEURUSD;
+
+        if (currencyElement.value === "PLN" && resultCurrencyElement.value === "EUR") {
+            return (currencyWorthPLNEUR);
+
+        } else if (currencyElement.value === "EUR" && resultCurrencyElement.value === "PLN") {
+            return (currencyWorthEURPLN);
+
+        } else if (currencyElement.value === "PLN" && resultCurrencyElement.value === "USD") {
+            return (currencyWorthPLNUSD);
+
+        } else if (currencyElement.value === "EUR" && resultCurrencyElement.value === "USD") {
+            return (currencyWorthEURUSD);
+
+        } else if (currencyElement.value === "USD" && resultCurrencyElement.value === "PLN") {
+            return (currencyWorthUSDPLN);
+
+        } else if (currencyElement.value === "USD" && resultCurrencyElement.value === "EUR") {
+            return (currencyWorthUSDEUR);
+
+        } else if (currencyElement.value === resultCurrencyElement.value) {
+            currencyElement.classList.add("form__selectField--error");
+            resultCurrencyElement.classList.add("form__selectField--error");
+        }
+        else {
+            console.log("error");
+        }
     }
-    else {
-        console.log("error");
+
+    const calculateResult = () => {
+        const amountElement = document.querySelector(".js-amount");
+        return (amountElement.value * checkCurrencyPairRate()).toFixed(2);
+
     }
-});
+
+    const removeErrors = () => {
+        currencyElement.classList.remove("form__selectField--error");
+        resultCurrencyElement.classList.remove("form__selectField--error");
+    }
+
+
+    const init = () => {
+
+        const formElement = document.querySelector(".js-form");
+        const resultElement = document.querySelector(".js-result");
+
+        formElement.addEventListener("submit", (event) => {
+            event.preventDefault();
+            removeErrors();
+            resultElement.value = calculateResult();
+        })
+    }
+
+    init();
+}
