@@ -2,9 +2,7 @@
     const currencyElement = document.querySelector(".js-currency");
     const resultCurrencyElement = document.querySelector(".js-resultCurrency");
 
-
     const checkCurrencyPairRate = () => {
-
         const currencyWorthEURPLN = 4.57;
         const currencyWorthPLNEUR = 1 / currencyWorthEURPLN;
 
@@ -44,14 +42,12 @@
     const calculateResult = () => {
         const amountElement = document.querySelector(".js-amount");
         return (amountElement.value * checkCurrencyPairRate()).toFixed(2);
-
     }
 
     const removeErrors = () => {
         currencyElement.classList.remove("form__selectField--error");
         resultCurrencyElement.classList.remove("form__selectField--error");
     }
-
 
     const init = () => {
 
@@ -64,6 +60,5 @@
             resultElement.value = calculateResult();
         })
     }
-
     init();
 }
